@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>学生返校日常通行码</title>
+</head>
+<body>
+  <div class="in" style="margin: 0px; width: 100%; border: 0px">
+    <div style="text-align: center; width: 49%;  border-bottom: solid 3px #5087ed; margin-left: 5px"><p style="color: #868788; font-size: 18px">申请表单</p></div>
+    <div style="background-color: #f1f2f3; padding-top: 10px; padding-bottom: 6px">
+        <div style="margin: auto; width:95%; background-color: white">
+            <i class="el-icon-tickets" style="margin: 12px; font-weight:bold; color: #000; font-size: 12px"> 学生返校后通行码</i>
+        </div>
+        <div style="margin: auto; width:95%">
+            <p style="color: #868788; font-size: 14px">入校时间</p>
+        </div>
+    </div>
+    <div>
+        <div style="margin: auto; width:95%">
+            <p id="time" style="color: #606366; font-weight:bold; font-size: 22px"></p>
+        </div>
+    </div>
+    <div style="background-color: #f1f2f3; padding-top: 4px; padding-bottom: 6px">
+        <div style="margin: auto; width:95%">
+            <p style="color: #868788; font-size: 14px">头像</p>
+        </div>
+    </div>
+    <div>
+        <div style="margin: auto; width:35%;  padding-bottom: 20px">
+            <img src="./avatar-default.png" style="width: 100%; height: 100%; padding-top: 20px">
+        </div>
+    </div>
+    <div style="background-color: #f1f2f3; padding-top: 4px; padding-bottom: 6px">
+        <div style="margin: auto; width:95%">
+            <p style="color: #868788; font-size: 14px">通行码</p>
+        </div>
+    </div>
+    <div>
+        <div style="margin: auto; width:25%">
+            <img src="./pass.png" style="width: 100%; height: 100%; padding-top: 20px; padding-bottom: 20px">
+        </div>
+    </div>
+    <div style="background-color: #f1f2f3; padding-top: 4px; padding-bottom: 6px">
+        <div style="margin: auto; width:95%">
+            <p style="color: #868788; font-size: 14px">姓名，学院，通行门</p>
+        </div>
+    </div>
+    <div>
+        <div style="margin: auto; width:95%">
+            <p style="color: #606366; font-weight:bold; font-size: 18px">张晶晶，信息科学与工程学院，崂山南门（学生）入</p>
+        </div>
+    </div>
+    <div style="background-color: #f1f2f3; padding-top: 10px; padding-bottom: 12px; height: 200px">
+        
+    </div>
+  </div>
+</body>
+<script>
+const getCurrentTime = ()=>{
+  var date=new Date();
+    var year=date.getFullYear();
+    /* 在日期格式中，月份是从0开始的，因此要加0
+      * 使用三元表达式在小于10的前面加0，以达到格式统一  如 09:11:05
+      * */
+    var month= date.getMonth()+1<10 ? "0"+(date.getMonth()+1) : date.getMonth()+1;
+    var day=date.getDate()<10 ? "0"+date.getDate() : date.getDate();
+    var hours=date.getHours()<10 ? "0"+date.getHours() : date.getHours();
+    var minutes=date.getMinutes()<10 ? "0"+date.getMinutes() : date.getMinutes();
+    var seconds=date.getSeconds()<10 ? "0"+date.getSeconds() : date.getSeconds();
+    // 拼接
+    return year+"-"+month+"-"+day+" "+hours+":"+minutes
+}
+document.querySelector('#time').innerHTML = getCurrentTime();
+</script>
+</html>
